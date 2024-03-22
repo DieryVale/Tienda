@@ -12,9 +12,9 @@ class Tipo (Enum):
     FARMACIA = 3
 
 class Producto:
-    __subsidio = True 
+     #  __subsidio = True 
 
-    calidad = 'A'
+    #  calidad = 'A'
 
     '''---------------------------------------------------------------------------
     # Constantes de la
