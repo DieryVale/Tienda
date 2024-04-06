@@ -27,16 +27,24 @@ class Producto:
     '''---------------------------------------------------------------------------
     # Atributos 
     ------------------------------------------------------------------------------'''  
-    __nombre = None 
+    ''' __nombre = None 
     __tipo = Enum('Tipo', ['PAPELERIA', 'SUPERMERCADO', 'FARMACIA'])
     __valorUnitario = 0.0
-    __cantidadBodega = 0
+    __cantidadBodega = 0                                               # al tenerlo en __init__, con el self pasa hacer las variables globales por ende no se nesecita estos atributos  
     __cantidadMinima = 0 
-    __cantidadUnidadesVendidas = 0 
+    __cantidadUnidadesVendidas = 0 '''
 
     '''----------------------------------------------------------------------------
     # Metodos 
     --------------------------------------------------------------------------------'''
+    def __init__(self,pTipo, pNombre, pValorUnitario, pCantidadBodega, pCantidadMinima):
+        self.__tipo = pTipo
+        self.__nombre = pNombre
+        self.__valorUnitario = pValorUnitario
+        self.__cantidadBodega = pCantidadBodega
+        self.__cantidadMinima = pCantidadMinima
+        self.__cantidadUnidadesVendidas = 0 
+
 
     def getNombre(self):
         return self.__nombre
@@ -56,3 +64,55 @@ class Producto:
     def getCantidadUnidadesVendidas(self):
         return self.__cantidadUnidadesVendidas
     
+    def setNombre(self, nombre):
+        self.__nombre = nombre
+        
+    def setTipo(self, tipo):
+        self.__tipo = tipo
+        
+    def setValorUnitario(self, valorUnitario):
+        self.__valorUnitario = valorUnitario    
+        
+    def setCantidadBodega(self, cantidadBodega):
+        self.__cantidadBodega = cantidadBodega
+    
+    def setCantidadMinima(self, cantidadMinima):
+        self.__cantidadMinima = cantidadMinima
+        
+    def setCantidadUnidadesVendidas(self, cantidadUnidadesVendidas):
+        self.__cantidadUnidadesVendidas = cantidadUnidadesVendidas
+    
+    
+    def vender(self, cantidad):
+        if (cantidad <= self.__cantidadBodega):
+            self.__cantidadUnidadesVendidas += cantidad
+            self.__cantidadBodega -= cantidad 
+            
+        else:
+            print("Cantidad no disponible.")
+            
+    # tarea crear un metodo hay suficiente devuelva tyrue false true si hay las unidades que deseo comprar y falso  en caso contrario.
+    
+    def haySuficiente(self, cantidad):
+        # forma 1
+        if(cantidad  <= self.__cantidadBodega):
+            return True
+        else:
+            return False  
+        # forma 2
+        '''return cantidad  <= self.__cantidadBodega'''
+        
+        
+    def getIVA(self):
+        if (self.__tipo == "PAPELERIA"):
+            return self.__IVA_PAPELERIA
+        
+        elif self.__tipo == "FARMACIA":
+            return self.__IVA_FARMACIA
+        
+        elif self.__tipo == "SUPERMERCADO":
+            return self.__IVA_SUPERMERCADO
+        
+        else:
+            print("Categoría no soportata ")
+            
