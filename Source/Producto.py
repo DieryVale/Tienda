@@ -115,4 +115,26 @@ class Producto:
         
         else:
             print("Categoría no soportata ")
+
+    def subirValorUnitario(self):
+
+        if(self.valorProducto < 1000):
+            self.__valorUnitario += self.valorProducto * 0.1
+        
+        elif(self.valorProducto >= 1000 and self.valorProducto <= 5000):
+            self.__valorUnitario += self.valorProducto * 0.2
+
+        else: # cualquier producto si cuesta más de $ 5000 entra aqui
+            self.__valorUnitario += self.valorProducto * 0.3
+
+    def hacerPedido(self, pCantidad):
+        if(self.__cantidadBodega < self.__cantidadMinima):
+                self.__cantidadBodega += pCantidad
+    
+    def cambiarValorUnitario(self):
+        if(self.__tipo == "DROGUERIA" or self.__tipo == "PAPELERIA"):
+            self.__valorUnitario -= self.__valorUnitario * 0.1
+        else: # se supone que es de tipo SUPERMERCADO|
+            self.__valorUnitario += self.__valorUnitario * 0.5
+
             
