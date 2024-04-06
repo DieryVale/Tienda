@@ -43,7 +43,6 @@ class Tienda:
                 self.__dineroEnCaja += self.unidadesVendidas * self.producto.getValorUnitario()
                 return self.unidadesVendidas
 
-
     def cuantosPapelerias(self):
         if(self.__tipo == "PAPELERIA"):
              self.pVendidos = self.__cantidadUnidadesVendidas() * self.__valorUnitario()
