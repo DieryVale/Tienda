@@ -19,7 +19,8 @@ class Tienda:
         self.__producto3 = Producto("SUPERMERCADO", "CAFE", 5600, 20, 10)
         self.__producto4 = Producto("DROGUERIA", "DESINFECTANTE", 3200, 12, 11)
         self.__dineroEnCaja = 0.0
-
+        self.__cantidadUnidadesVendidas = self.__cantidadUnidadesVendidas()
+        self.__valorUnitario = self.__valorUnitario()
 
     def getProducto1(self):
         return self.__producto1
@@ -35,3 +36,14 @@ class Tienda:
     
     def getdineroEnCaja(self):
         return self.__dineroEnCaja
+    
+    def venderProducto(self, pNombreProducto, pCantidad):
+        if( self.producto.getNombre() == pNombreProducto):
+                self.unidadesVendidas = self.producto.vender(pCantidad)
+                self.__dineroEnCaja += self.unidadesVendidas * self.producto.getValorUnitario()
+                return self.unidadesVendidas
+
+
+    def cuantosPapelerias(self):
+        if(self.__tipo == "PAPELERIA"):
+             self.pVendidos = self.__cantidadUnidadesVendidas() * self.__valorUnitario()
