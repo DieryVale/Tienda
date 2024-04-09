@@ -137,4 +137,9 @@ class Producto:
         else: # se supone que es de tipo SUPERMERCADO|
             self.__valorUnitario += self.__valorUnitario * 0.5
 
-            
+    def nombreTipoProducto(self):
+        self.tipoProducto = " "
+        if self.__tipo == "SUPERMERCADO":           # lower: para modificar mayusculas pasandolas a minusculas 
+         return "El producto es de "+ self.tipoProducto.lower()   
+        else:
+            self.tipoProducto = "Desconocido"       
